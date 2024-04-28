@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 public class FeignController {
 
-  private PostsFeignClient postsFeignClient;
+  private final PostsFeignClient postsFeignClient;
 
   @Autowired
   private AccountFeignClient accountFeignClient;
@@ -28,9 +28,8 @@ public class FeignController {
             "https://jsonplaceholder.typicode.com/");
   }
 
-  /*@GetMapping(value = "/users")
-  public List<User> getAllUsers() { return accountFeignClient.getUsers().getBody();}*/
-          //getUsers().getBody(); }
+  @GetMapping(value = "/users")
+  public List<User> getAllUsers() { return accountFeignClient.getUsers().getBody();}
 
   @GetMapping(value = "/posts")
   public List<Post> getAllPosts() {
