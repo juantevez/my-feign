@@ -5,8 +5,8 @@ import feign.Retryer;
 
 public class CustomRetryer implements Retryer {
 
-	private int maxRetries;
-	private long retryInterval;
+	private final int maxRetries;
+	private final long retryInterval;
 	private int attempt = 1;
 
 	public CustomRetryer(int maxRetries, Long retryInterval) {
