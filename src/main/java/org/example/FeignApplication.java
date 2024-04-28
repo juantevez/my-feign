@@ -28,6 +28,7 @@ public class FeignApplication implements CommandLineRunner {
         if (responseEntity.getStatusCode().is2xxSuccessful()) {
             //Process response body
             List<User> usersList = responseEntity.getBody();
+            assert usersList != null;
             usersList.forEach(System.out::println);
         } else if(responseEntity.getStatusCode().is4xxClientError()){
             throw new BadRequestException("Bad Request");

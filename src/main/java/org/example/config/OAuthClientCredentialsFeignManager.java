@@ -30,6 +30,7 @@ public class OAuthClientCredentialsFeignManager {
 			}
 			return client.getAccessToken().getTokenValue();
 		} catch (Exception exp) {
+			exp.getCause();
 		}
 		return null;
 	}
